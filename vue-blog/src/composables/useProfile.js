@@ -22,15 +22,28 @@ export function useProfile() {
   onMounted(() => {
     const savedProfile = localStorage.getItem("user_profile");
     if (savedProfile) {
-      const parsedProfile = JSON.parse(savedProfile);
-      // 合并旧数据和新的默认标签，确保新标签被添加
-      if (
-        !parsedProfile.tags ||
-        parsedProfile.tags.length < defaultProfile.tags.length
-      ) {
-        parsedProfile.tags = defaultProfile.tags;
+      try {
+        const parsedProfile = JSON.parse(savedProfile);
+        // 验证关键字段是否存在
+        if (parsedProfile.name && parsedProfile.avatar && parsedProfile.bio) {
+          // 合并旧数据和新的默认标签，确保新标签被添加
+          if (
+            !parsedProfile.tags ||
+            parsedProfile.tags.length < defaultProfile.tags.length
+          ) {
+            parsedProfile.tags = defaultProfile.tags;
+          }
+          Object.assign(profile, parsedProfile);
+        } else {
+          // 如果数据不完整，使用默认值
+          Object.assign(profile, defaultProfile);
+          localStorage.setItem("user_profile", JSON.stringify(defaultProfile));
+        }
+      } catch (e) {
+        // 如果解析失败，使用默认值
+        Object.assign(profile, defaultProfile);
+        localStorage.setItem("user_profile", JSON.stringify(defaultProfile));
       }
-      Object.assign(profile, parsedProfile);
     } else {
       // 如果 localStorage 中没有，则保存默认资料
       localStorage.setItem("user_profile", JSON.stringify(defaultProfile));

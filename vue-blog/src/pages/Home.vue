@@ -195,9 +195,14 @@ const articles = reactive([]);
 
 // Hero图片相关
 const fileInput = ref(null);
+const defaultHeroImage =
+  "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=anime%20style%20beautiful%20landscape%20cherry%20blossom%20spring%20mountains%20lake%20reflection%20peaceful&image_size=landscape_16_9";
+
+const savedHeroImage = localStorage.getItem("hero_image");
 const currentImage = ref(
-  localStorage.getItem("hero_image") ||
-    "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=anime%20style%20beautiful%20landscape%20cherry%20blossom%20spring%20mountains%20lake%20reflection%20peaceful&image_size=landscape_16_9",
+  savedHeroImage && savedHeroImage.startsWith("http")
+    ? savedHeroImage
+    : defaultHeroImage,
 );
 
 const triggerFileInput = () => {
