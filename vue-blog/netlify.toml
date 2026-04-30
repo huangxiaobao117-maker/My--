@@ -1,6 +1,7 @@
 [build]
+  base = "vue-blog"
   command = "npm ci && npm run build"
-  publish = "dist"
+  publish = "vue-blog/dist"
 
 [dev]
   command = "npm run dev"
