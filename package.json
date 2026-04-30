@@ -1,0 +1,7 @@
+{
+  "name": "personal-blog-root",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -C vue-blog dev"
+  }
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>黄小包博客</title>
+    <link>https://yourdomain.com</link>
+    <description>探索数字设计的深度与前端开发的无限可能</description>
+    <language>zh-CN</language>
+    <copyright>© 2026 黄小包博客</copyright>
+    <atom:link href="https://yourdomain.com/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Vue 3 组合式API最佳实践</title>
+      <link>https://yourdomain.com/article/0</link>
+      <description>深入探讨Vue 3组合式API的设计模式和最佳实践，帮助你更好地组织和复用代码逻辑。</description>
+      <pubDate>Mon, 29 Apr 2026 10:00:00 GMT</pubDate>
+      <category>Vue</category>
+    </item>
+    
+    <item>
+      <title>Tailwind CSS 3 完全指南</title>
+      <link>https://yourdomain.com/article/1</link>
+      <description>从入门到精通，全面掌握Tailwind CSS 3的核心概念和高级技巧。</description>
+      <pubDate>Sun, 28 Apr 2026 15:30:00 GMT</pubDate>
+      <category>CSS</category>
+    </item>
+    
+    <item>
+      <title>TypeScript 类型体操入门</title>
+      <link>https://yourdomain.com/article/2</link>
+      <description>学习TypeScript高级类型系统，提升代码类型安全性和开发效率。</description>
+      <pubDate>Sat, 27 Apr 2026 09:00:00 GMT</pubDate>
+      <category>TypeScript</category>
+    </item>
+    
+    <item>
+      <title>Vite 构建优化技巧</title>
+      <link>https://yourdomain.com/article/3</link>
+      <description>深入了解Vite的构建原理，学习如何优化项目构建性能。</description>
+      <pubDate>Fri, 26 Apr 2026 14:00:00 GMT</pubDate>
+      <category>工具</category>
+    </item>
+    
+    <item>
+      <title>前端性能优化实战</title>
+      <link>https://yourdomain.com/article/4</link>
+      <description>从代码优化到资源加载，全面提升前端应用性能。</description>
+      <pubDate>Thu, 25 Apr 2026 11:00:00 GMT</pubDate>
+      <category>性能</category>
+    </item>
+  </channel>
+</rss>
