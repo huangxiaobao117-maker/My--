@@ -176,8 +176,7 @@ const techs = [
 const articles = reactive([]);
 
 // 固定的首页Hero图片（无法修改）
-const heroImage =
-  "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=anime%20girl%20silver%20long%20hair%20pink%20sweater%20happy%20laughing%20closed%20eyes%20blush%20heart%20symbols%20white%20background%20kawaii%20style&image_size=square_hd";
+const heroImage = "/微信图片_20260430175008_39_30.jpg";
 
 onMounted(() => {
   const savedArticles = localStorage.getItem("blog_articles");
