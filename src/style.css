@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #60a5fa;
+  --color-secondary: #fc79bd;
+  --color-surface: #f8f9ff;
+  --color-on-surface: #121c2a;
+  
+  /* 自定义响应式断点 */
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#f9fafc] text-slate-900 antialiased transition-colors duration-300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+
+  /* 触摸友好的点击区域 */
+  button,
+  a,
+  [role="button"] {
+    @apply min-h-[44px] flex items-center justify-center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300;
+  }
+
+  .dark .glass-panel {
+    @apply bg-slate-900/50 border-slate-800 shadow-none backdrop-blur-xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply min-h-[44px] px-6 py-2.5 bg-blue-600 text-white rounded-xl font-semibold shadow-lg shadow-blue-600/10 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply min-h-[44px] px-6 py-2.5 bg-white text-blue-600 border border-blue-100 rounded-xl hover:bg-blue-50 active:scale-95 transition-all duration-300 cursor-pointer;
+  }
+
+  .dark .btn-outline {
+    @apply bg-slate-800 text-blue-400 border-slate-700 hover:bg-slate-700;
+  }
+
+  /* 移动端优化的卡片 */
+  .mobile-card {
+    @apply active:scale-[0.98] transition-transform duration-150;
+  }
+
+  /* 安全的文本渲染 */
+  .safe-text {
+    @apply break-words;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@layer utilities {
+  /* 禁用文本选择 */
+  .select-none {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* 滚动条优化 */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.slate.300') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.slate.300');
+    border-radius: 3px;
+  }
+
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.slate.600');
+  }
+}
+
+/* 移动端优化 */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    @apply px-4 py-3;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .glass-panel {
+    @apply border-slate-400;
+  }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
