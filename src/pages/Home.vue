@@ -32,32 +32,14 @@
       </div>
       <div class="flex-1 relative w-full max-w-2xl">
         <div
-          class="aspect-square rounded-[40px] overflow-hidden glass-panel p-5 shadow-2xl shadow-blue-100/50 border border-white/50 cursor-pointer group"
-          @click="triggerFileInput"
+          class="aspect-square rounded-[40px] overflow-hidden glass-panel p-5 shadow-2xl shadow-blue-100/50 border border-white/50"
         >
           <LazyImage
-            :src="currentImage"
+            :src="heroImage"
             alt="Creative Space"
-            className="rounded-[30px] transition-transform duration-500 group-hover:scale-105"
+            className="rounded-[30px]"
           />
-          <div
-            class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-[40px]"
-          >
-            <span class="material-symbols-outlined text-white text-4xl"
-              >upload</span
-            >
-          </div>
         </div>
-        <input
-          ref="fileInput"
-          type="file"
-          accept="image/*"
-          class="hidden"
-          @change="handleImageUpload"
-        />
-        <p class="text-center text-sm text-slate-400 mt-3">
-          点击图片上传本地图片
-        </p>
         <!-- Floating Widget -->
         <div
           class="absolute -bottom-8 -left-32 glass-panel p-6 rounded-3xl shadow-xl border border-white/80 hidden xl:block animate-float"
@@ -181,7 +163,7 @@
 </template>
 
 <script setup>
-import { reactive, onMounted, ref } from "vue";
+import { reactive, onMounted } from "vue";
 import LazyImage from "../components/LazyImage.vue";
 
 const techs = [
@@ -193,36 +175,9 @@ const techs = [
 
 const articles = reactive([]);
 
-// Hero图片相关
-const fileInput = ref(null);
-const defaultHeroImage =
-  "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=anime%20style%20beautiful%20landscape%20cherry%20blossom%20spring%20mountains%20lake%20reflection%20peaceful&image_size=landscape_16_9";
-
-const savedHeroImage = localStorage.getItem("hero_image");
-const currentImage = ref(
-  savedHeroImage && savedHeroImage.startsWith("http")
-    ? savedHeroImage
-    : defaultHeroImage,
-);
-
-const triggerFileInput = () => {
-  fileInput.value?.click();
-};
-
-const handleImageUpload = (event) => {
-  const file = event.target.files?.[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const imageDataUrl = e.target?.result;
-    if (imageDataUrl) {
-      currentImage.value = imageDataUrl;
-      localStorage.setItem("hero_image", imageDataUrl);
-    }
-  };
-  reader.readAsDataURL(file);
-};
+// 固定的首页Hero图片（无法修改）
+const heroImage =
+  "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=anime%20style%20beautiful%20girl%20silver%20hair%20pink%20dress%20cute%20happy%20smile%20hearts&image_size=square_hd";
 
 onMounted(() => {
   const savedArticles = localStorage.getItem("blog_articles");
