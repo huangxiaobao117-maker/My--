@@ -201,8 +201,7 @@ onMounted(() => {
         desc: "探索如何通过毛玻璃效果、透明度和层叠关系打造轻盈现代的数字界面，同时兼顾可访问...",
         date: "2026-10-15",
         tag: "设计规范",
-        image:
-          "https://lh3.googleusercontent.com/aida-public/AB6AXuDz0yK2jEr7dJpXVUc2S2OH-Al1bYDGgXxlxSnJCYoxQTfyM-dR2BICBU3bvYJq5Pq2Qmz3Bd2rNLzswkZER14HvjbsWTPHx6bb_HlnGlV_HAFuZtMePp_yQwzUQcMDrvDbsw_rr5GFrG6pPRhh8DdyhNEFxF4uWx3AUp-ZPdFpBAMHYQNmf3qiZ15DUdrjda4z4asVzKM_EQUUlxZS_xMesaU1HPeVoreERKib8HsjKGO8eBHH7GG5pgHjt9rTEXUKEtsp1HDoZP4",
+        image: "/微信图片_20260430175008_39_30.jpg",
       },
       {
         title: "代码之外：开发者的专注力养成",
